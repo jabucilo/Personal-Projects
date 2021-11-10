@@ -67,9 +67,17 @@ class Game(BaseGame):
     # returns nothing, just adapts self.gameboard
     def shuffle_gameboard(self):
         # DONE implement logic according to comments and assignment description
+        clicked_circles = []
+        
         for i in range(GAME_DIFFICULTY):
             random_pos = (random.choice(range(self.circle_count)), random.choice(range(self.circle_count)))
+            
+            # keeping track of clicked circles, to avoid accidentaly solving the level by clicking on the same circle twice
+            while random_pos in clicked_circles:
+              random_pos = (random.choice(range(self.circle_count)), random.choice(range(self.circle_count)))
+              
             self.swap_circle_colors(random_pos)
+            clicked_circles.append(random_pos)
 
     # Logic to swap all circles in a diagonal pattern (X) from the clicked circle
     # returns nothing, just adapts self.gameboard
