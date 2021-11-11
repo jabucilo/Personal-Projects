@@ -1,0 +1,4 @@
+blue:red;yellow;green
+red:blue;yellow;green
+yellow:blue;red;green
+green:blue;red;yellow
